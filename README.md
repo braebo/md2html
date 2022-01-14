@@ -33,3 +33,8 @@ the folder location in the command line.
     - simple
     - simple-dark
   - To preview the themes, open `themes/_preview.html` in your browser.
+
+
+## Build from source
+To build the executable yourself, clone this repo and run `npm run build`
+> note: you need to have [Deno](https://deno.land) installed

@@ -14,7 +14,7 @@ if (configFile) {
 
 //* Target folder to parse
 const inputFolder = config.notesFolder || Deno.args[0]
-const outputFolder = config.htmlDesitinationFolder || Deno.args[1]
+const outputFolder = config.htmlFolder || Deno.args[1]
 
 //* Make sure the target folder exists
 if (!inputFolder) {
