@@ -36,5 +36,5 @@ the folder location in the command line.
 
 
 ## Build from source
-To build the executable yourself, clone this repo and run `npm run build`
+To build the executable yourself, clone [this repo](https://github.com/FractalHQ/md2html/) and run `npm run build`
 > note: you need to have [Deno](https://deno.land) installed
