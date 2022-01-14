@@ -4,146 +4,203 @@
 []: # Path: markdown.md</p>
 <h4 id="ok-bye">ok bye</h4>
 
-<style>@import url(http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic&subset=latin);
-
-html, body {
-        padding:1em;
-        margin:auto;
-        max-width:42em;
-        background:#fefefe;
-	}
-body {
-	font: 1.3em "Vollkorn", Palatino, Times;
-	color: #333;
-	line-height: 1.4;
-	text-align: justify;
-	}
-header, nav, article, footer {
-	width: 700px;
-	margin:0 auto;
-	}
-article {
-	margin-top: 4em;
-	margin-bottom: 4em;
-	min-height: 400px;
-	}
-footer {
-	margin-bottom:50px;
-	}
-video {
-	margin: 2em 0;
-	border:1px solid #ddd;
-	}
-
-nav {
-	font-size: .9em;
-	font-style: italic;
-	border-bottom: 1px solid #ddd;
-	padding: 1em 0;
-	}
-nav p {
-	margin: 0;
-	}
-
-/* Typography
--------------------------------------------------------- */
-
-h1 {
-	margin-top: 0;
-	font-weight: normal;
-	}
-h2 {
-	font-weight: normal;
-	}
-h3 {
-	font-weight: normal;
-	font-style: italic;
-	margin-top:3em;
-	}
-p {
-	margin-top:0;
-	-webkit-hypens:auto;
-	-moz-hypens:auto;
-	hyphens:auto;
-	}
-ul {
-	list-style: square;
-	padding-left:1.2em;
-	}
-ol {
-	padding-left:1.2em;
-	}
-blockquote {
-	margin-left: 1em;
-	padding-left: 1em;
-	border-left: 1px solid #ddd;
-	}
+<style>pre,
 code {
-	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
-	font-size: .9em;
-	background: white;
-	}
-a {
-	color: #2484c1;
-	text-decoration: none;
-	}
-a:hover {
-	text-decoration: underline;
-	}
-a img {
-	border:none;
-	}
-h1 a, h1 a:hover {
-	color: #333;
-	text-decoration: none;
-	}
-hr {
-	color : #ddd;
-	height : 1px;
-	margin: 2em 0;
-	border-top : solid 1px #ddd;
-	border-bottom : none;
-	border-left: 0;
-	border-right: 0;
-	}
-p#heart{
-	font-size: 2em;
-	line-height: 1;
-	text-align: center;
-	color: #ccc;
-	}
-.red {
-	color:#B50000;
-	}
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
 
-/* Home Page
---------------------------- */
+pre {
+  padding: .5rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+}
 
-body#index li {
-	margin-bottom: 1em;
-	}
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
 
-/* iPad
--------------------------------------------------------- */
-@media only screen and (max-device-width: 1024px) {
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+a,
+a:visited {
+  color: #01ff70;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #2ecc40;
+}
+
+.retro-no-decoration {
+  text-decoration: none;
+}
+
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
 body {
-	font-size: 120%;
-	line-height: 1.4;
-	}
-} /* @iPad */
+  line-height: 1.85;
+}
 
-/* iPhone
--------------------------------------------------------- */
-@media only screen and (max-device-width: 480px) {
+p,
+.retro-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+h1,
+.retro-h1,
+h2,
+.retro-h2,
+h3,
+.retro-h3,
+h4,
+.retro-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+h1,
+.retro-h1 {
+  margin-top: 0;
+  font-size: 3.998rem;
+}
+
+h2,
+.retro-h2 {
+  font-size: 2.827rem;
+}
+
+h3,
+.retro-h3 {
+  font-size: 1.999rem;
+}
+
+h4,
+.retro-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.retro-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.retro-h6 {
+  font-size: .88rem;
+}
+
+small,
+.retro-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+html,
 body {
-	text-align: left;
-	}
-article, footer {
-	width: auto;
-	}
-article {
-	padding: 0 10px;
-	}
-} /* @iPhone */
-<style>
+  background-color: #222;
+  min-height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  color: #fafafa;
+  font-family: "Courier New";
+  line-height: 1.45;
+  margin: 6rem auto 1rem;
+  max-width: 48rem;
+  padding: .25rem;
+}
+
+pre {
+  background-color: #333;
+}
+
+blockquote {
+  border-left: 3px solid #01ff70;
+  padding-left: 1rem;
+}<style>

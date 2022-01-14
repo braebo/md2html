@@ -9,7 +9,7 @@ In your terminal, run:
 
 <details>
 	<summary>Troubleshooting</summary>
-	Your terminal should be in the same directory as the executable.  If not, you can specify the path to the executable as the first argument.  i.e. with an absolute path - `C:\Users\John\Desktop\md2html.exe <markdownFolder> <htmlDestinationFolder>`, or a relative path - `../../Desktop/md2html.exe <markdownFolder> <htmlDestinationFolder>`
+	Your terminal should be in the same directory as the executable.  If not, you can drag the `.exe` into your terminal, or manually specify the path to the executable as the first argument.  i.e. with an absolute path - `C:\Users\John\Desktop\md2html.exe <markdownFolder> <htmlDestinationFolder>`, or a relative path - `../../Desktop/md2html.exe <markdownFolder> <htmlDestinationFolder>`
 </details>
 
 <br>
@@ -36,5 +36,5 @@ the folder location in the command line.
 
 
 ## Build from source
-To build the executable yourself, clone this repo and run `npm run build`
+To build the executable yourself, clone [this repo](https://github.com/FractalHQ/md2html/) and run `npm run build`
 > note: you need to have [Deno](https://deno.land) installed
