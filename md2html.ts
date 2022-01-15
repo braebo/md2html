@@ -15,7 +15,7 @@ const cwd = dev ? "./" : dirname(Deno.execPath())
 
 
 //* Parse config file
-const configFile = await Deno.readTextFile(`${cwd}config.json`)
+const configFile = await Deno.readTextFile(`${cwd}/config.json`)
 let config
 if (configFile) {
 	config = { ...JSON.parse(configFile) }
@@ -25,7 +25,7 @@ if (configFile) {
 
 //* Resolve paths
 let inputFolder = config.notesFolder || Deno.args[0] || cwd
-let outputFolder = config.htmlFolder || Deno.args[1] || `${cwd}HTML/`
+let outputFolder = config.htmlFolder || Deno.args[1] || `${cwd}/HTML/`
 
 //* Make sure they have trailing slashes
 if (!inputFolder.endsWith("/")) inputFolder += "/"
@@ -42,22 +42,21 @@ if (config.theme) {
 } else console.log(Colors.magenta(`No theme specified. Using default theme: modest.css\n`))
 
 //* Make sure the theme file exists and store it's contents
-let style: string
+let style = ''
 try {
 	style = `\n\n<!-- ${theme} theme -->\n<style>${await Deno.readTextFile(Deno.cwd() + `/themes/${theme}.css`)}\n</style>\n`
 } catch (e) {
-	log(
+	await exitDelayed(
 		`That theme isn't in your theme folder.. you trippin.  Look what you done did smh: \n${e}`,
 	)
-	Deno.exit()
 }
 
 
 //* Do the damn thing
-await compile(inputFolder, outputFolder, theme, style)
+await compile(inputFolder, outputFolder, style)
 
 //* The damn thing
-async function compile(input: string, output: string, theme: string, style: string) {
+async function compile(input: string, output: string, style: string) {
 	let count = 0
 
 	try {
@@ -84,7 +83,7 @@ async function compile(input: string, output: string, theme: string, style: stri
 
 				//* Write the html to the output folder
 				await Deno.writeFile(
-					output + file.name.replace(".md", ".html"),
+					outputFile,
 					encoder.encode(themedHTML),
 				)
 				console.log(
@@ -99,9 +98,19 @@ async function compile(input: string, output: string, theme: string, style: stri
 				count++
 			}
 		}
-		console.log("👌 Successfully compiled " + count + " files")
+		
+		if (count > 0) {
+			await exitDelayed("👌 Successfully compiled " + count + " files")
+		} else {
+			await exitDelayed("Hmmm... no markdown files found in " + input.replaceAll('\\', '/'))
+		}
 	} catch (e) {
-		log("Damn... something done fucked up.  Here go ya error message: \n")
-		console.error(e)
+		await exitDelayed("Damn... something done fucked up.  Here go ya error message: \n" + e)
 	}
+}
+
+async function exitDelayed(msg: string) {
+	await console.log(msg)
+	await console.log('Exiting in 10 seconds...')
+	await new Promise(resolve => setTimeout(() => resolve(Deno.exit()), 10000))
 }
