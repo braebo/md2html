@@ -4,8 +4,8 @@
   "description": "Compile markdown to html",
   "main": "index.js",
   "scripts": {
-    "test": "deno run --allow-read --allow-write md2html.ts notes html",
-    "build": "deno compile --allow-read --allow-write --output build/md2html md2html.ts"
+    "test": "deno run --allow-read --allow-write --allow-net --allow-env md2html.ts",
+    "build": "deno compile --allow-read --allow-write --allow-net --allow-env --output md2html/md2html md2html.ts"
   },
   "author": "",
   "license": "ISC"
