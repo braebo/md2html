@@ -6,9 +6,9 @@ Compiles a folder of markdown files to a folder of html files and embeds a theme
 
 Click on it.  To see terminal output, drag it into your terminal and press enter.
 
-To specify the input and output folders, run the program with the following command:
+To specify the input, output, and theme folders, run the program with optional folder paths:
 
-`md2html.exe <markdownFolder> <htmlDestinationFolder>`
+`md2html.exe <notesFolder> <htmlDestinationFolder> <themeFolder>`
 
 <br>
 <br>

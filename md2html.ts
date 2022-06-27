@@ -26,14 +26,16 @@ if (configFile) {
 //* Resolve paths
 let inputFolder = config.notesFolder || Deno.args[0] || cwd
 let outputFolder = config.htmlFolder || Deno.args[1] || `${cwd}/HTML/`
+const themesFolder = config.themeFolder || Deno.args[2] || `${cwd}/themes/`
 
 //* Make sure they have trailing slashes
 if (!inputFolder.endsWith("/")) inputFolder += "/"
 if (!outputFolder.endsWith("/")) outputFolder += "/"
+if (!themesFolder.endsWith("/")) outputFolder += "/"
 
-//* ensure the output folder exists
+//* ensure the folders exist
 ensureDirSync(outputFolder)
-
+ensureDirSync(themesFolder)
 
 //* Check for a theme
 const theme = config.theme || "modest"
@@ -44,7 +46,7 @@ if (config.theme) {
 //* Make sure the theme file exists and store it's contents
 let style = ''
 try {
-	style = `\n\n<!-- ${theme} theme -->\n<style>${await Deno.readTextFile(Deno.cwd() + `/themes/${theme}.css`)}\n</style>\n`
+	style = `\n\n<!-- ${theme} theme -->\n<style>${await Deno.readTextFile(themesFolder + `${theme}.css`)}\n</style>\n`
 } catch (e) {
 	await exitDelayed(
 		`That theme isn't in your theme folder.. you trippin.  Look what you done did smh: \n${e}`,
