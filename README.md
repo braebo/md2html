@@ -1,6 +1,6 @@
 # MD2HTML
 
-Compiles a folder of markdown files to a folder of html files and embeds a theme.
+Made for a friend who wanted a standalone .exe that he could click to turn his markdown notes folder into an offline-readable folder of HTML files with embeded / configurable themes.
 
 ## Usage
 
